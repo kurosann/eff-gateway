@@ -1,0 +1,13 @@
+server:
+  port: 8081
+  readTimout: 500
+  writeTimout: 500
+
+log:
+  path: /
+
+auth:
+  # default, off, custom
+  strategy: default
+  # 使用 custom 时需要配置
+  address: "http://127.0.0.1:8077/auth"
