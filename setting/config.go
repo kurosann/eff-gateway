@@ -31,6 +31,11 @@ type LogConfig struct {
 	Level string `json:"level"`
 }
 
+type Balance struct {
+	Strategy      string `json:"strategy"`
+	DefaultWeight string `json:"defaultWeight"`
+}
+
 func getConfig(conf *conf) {
 	config, err := ioutil.ReadFile("../setting/setting.yml")
 	if err != nil {

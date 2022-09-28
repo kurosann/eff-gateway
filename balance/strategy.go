@@ -1,0 +1,70 @@
+package balance
+
+import (
+	"go-gateway/balance/ip_hash"
+	"go-gateway/balance/poll"
+	"sync"
+)
+
+type StrategyRegister struct {
+	StrategyFunc string
+	ServerMap    sync.Map //存储服务策略
+}
+
+type PollStrategy interface {
+	Add(addr string, weight int) error
+	GetNode(serverName string) string
+	AddReqs(addr string, v ...int) error
+	SendMsg() error
+}
+
+type Strategy struct {
+	impl PollStrategy
+}
+
+func (r *Strategy) SetVehicle(i PollStrategy) {
+	r.impl = i
+}
+
+func NewStrategy() *StrategyRegister {
+	return &StrategyRegister{
+		StrategyFunc: "smooth_poll",
+		ServerMap:    sync.Map{},
+	}
+}
+
+func (sr *StrategyRegister) AddStrategy(sName string) {
+
+	switch sr.StrategyFunc {
+	case "ip_hash":
+		iph := &ip_hash.Consistent{}
+		traveler := Strategy{}
+		traveler.SetVehicle(iph)
+		sr.ServerMap.Store(sName, traveler)
+		break
+	case "smooth_poll":
+		sr.pollServer(sName)
+		break
+	default:
+		sr.pollServer(sName)
+		break
+
+	}
+}
+
+func (sr *StrategyRegister) pollServer(sName string) {
+	stf := poll.NewIPServer(sName)
+	go stf.Subscription.WeightUpdate()
+	traveler := &Strategy{}
+	traveler.SetVehicle(stf)
+	sr.ServerMap.Store(sName, traveler)
+}
+
+func (sr *StrategyRegister) GetServer(sName string) *Strategy {
+
+	var v, k = sr.ServerMap.Load(sName)
+	if k {
+		return v.(*Strategy)
+	}
+	return nil
+}

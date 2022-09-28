@@ -11,3 +11,9 @@ auth:
   strategy: default
   # 使用 custom 时需要配置
   address: "http://127.0.0.1:8077/auth"
+
+balance:
+  # ip_hash, smooth_poll
+  strategy: default
+  # 使用 smooth_poll 时需要配置
+  defaultWeight: 1000
