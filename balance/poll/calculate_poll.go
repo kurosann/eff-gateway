@@ -82,11 +82,11 @@ func (it *ServerTimeFragment) FragmentWeight() {
 			it.TotalLP += 1
 			continue
 		}
-		fmt.Println("CumulativeTime：", info.CumulativeTime)
-		fmt.Println("CumulativeRequest：", info.CumulativeRequest)
-		fmt.Println("LastPerformance：", info.LastPerformance)
+		fmt.Println("----------- 该节点计算结果 -----------")
+		fmt.Printf("Time：%d,Request：%d,LastPerformance：%d \n", info.CumulativeTime, info.CumulativeRequest, info.LastPerformance)
+		fmt.Println("------------------------------------")
 		// 已经有上次的片段开始计算
-		info.LastPerformance = ((info.CumulativeRequest/info.CumulativeTime)+info.LastPerformance)/2 + 1
+		info.LastPerformance = ((info.CumulativeRequest / info.CumulativeTime) + info.LastPerformance) / 2
 		it.IPList[i] = info
 		// 存储每个服务器的性能值
 		it.TotalLP += info.LastPerformance
@@ -100,11 +100,12 @@ func (it *ServerTimeFragment) weightProportionSort() {
 	it.Rss = new(WeightRoundRobinBalance)
 	it.DefaultWeight = 0
 	for _, info := range it.IPList {
-		info.Weight = info.LastPerformance * 100 / it.TotalLP
-		fmt.Println("LastPerformance: ", info.LastPerformance)
-		fmt.Println("TotalLP: ", it.TotalLP)
+		fmt.Println("----------- 权重计算 -----------")
 		fmt.Println("ip: ", info.Addr)
-		fmt.Println("weight: ", info.Weight)
+		fmt.Println("LastPerformance * 100 / TotalLP")
+		info.Weight = info.LastPerformance * 100 / it.TotalLP
+		fmt.Printf("weight = %d * 100 / %d = %d \n", info.LastPerformance, it.TotalLP, info.Weight)
+		fmt.Println("-------------------------------")
 		it.DefaultWeight += info.Weight
 		it.Rss.Add(info.Addr, info.Weight)
 	}

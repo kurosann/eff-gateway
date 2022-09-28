@@ -1,7 +1,5 @@
 package types
 
-import "fmt"
-
 // IPTimeInfo
 // 每个Ip的时间片段
 type IPTimeInfo struct {
@@ -33,9 +31,6 @@ func (itf *IPTimeInfo) RemoveCumulative() bool {
 // AddCumulative
 // 添加累积
 func (itf *IPTimeInfo) AddCumulative(t, req int) {
-	fmt.Println("t, req", t, req)
-	fmt.Println("itf ", itf)
-
 	itf.CumulativeTime += t
 	itf.CumulativeRequest += req
 }

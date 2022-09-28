@@ -2,7 +2,6 @@ package poll
 
 import (
 	"errors"
-	"fmt"
 )
 
 type WeightRoundRobinBalance struct {
@@ -48,7 +47,7 @@ func (r *WeightRoundRobinBalance) Add(addr string, weight int) error {
 }
 
 func (r *WeightRoundRobinBalance) Next() string {
-	total := int(0)
+	total := 0
 	var best *WeightNode
 
 	// currentWeight effecitveWeight  	选中的节点   		请求后current
@@ -79,7 +78,7 @@ func (r *WeightRoundRobinBalance) Next() string {
 		return ""
 	}
 	best.currentWeight -= total
-	fmt.Println(best.addr)
+	//fmt.Println(best.addr)
 	return best.addr
 }
 
