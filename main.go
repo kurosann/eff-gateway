@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"go-gateway/setting"
-	"go-gateway/src/system"
+	"go-gateway/gateway/system"
 	"log"
 	"net/http"
 	"time"
@@ -25,5 +25,5 @@ func main() {
 	go system.OsKill(cancel)
 	<-ctx.Done()
 	<-time.After(5 * time.Second)
-	log.Fatalln("Gateway stop")
+	log.Fatalln("Gateway service stop")
 }

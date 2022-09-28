@@ -2,7 +2,7 @@ package system
 
 import (
 	"context"
-	"go-gateway/src/proxy"
+	"go-gateway/gateway/proxy"
 	"log"
 	"net/http"
 	"os"
