@@ -1,8 +1,8 @@
 package glog
 
 import (
+	"eff-gateway/setting"
 	"fmt"
-	"go-gateway/setting"
 	"io"
 	"log"
 	"os"

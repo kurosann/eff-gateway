@@ -1,10 +1,10 @@
 package proxy
 
 import (
+	"eff-gateway/glog"
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go-gateway/glog"
 	"io"
 	"io/ioutil"
 	"net/http"

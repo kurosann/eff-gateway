@@ -2,6 +2,8 @@ server:
   port: 8081
   readTimout: 500
   writeTimout: 500
+  # 服务优雅关闭超时时间 秒为单位
+  shutdownTimout: 30
 
 log:
   path: /

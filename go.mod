@@ -1,4 +1,4 @@
-module go-gateway
+module eff-gateway
 
 go 1.16
 

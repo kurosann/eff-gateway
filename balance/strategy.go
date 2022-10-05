@@ -1,8 +1,8 @@
 package balance
 
 import (
-	"go-gateway/balance/ip_hash"
-	"go-gateway/balance/poll"
+	"eff-gateway/balance/ip_hash"
+	"eff-gateway/balance/poll"
 	"sync"
 )
 
