@@ -79,7 +79,8 @@ func (g *EffGateWay) close() {
 
 	if !g.isClose {
 		g.isClose = true
-		ctx, cancel := context.WithTimeout(context.Background(), time.Duration(setting.Config.Server.ShutdownTimout)*time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(),
+			time.Duration(setting.Config.Server.ShutdownTimout)*time.Second)
 		defer cancel()
 		if err := g.server.Shutdown(ctx); err != nil {
 			log.Println("shutting down: " + err.Error())

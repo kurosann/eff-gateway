@@ -6,7 +6,7 @@ server:
   shutdownTimout: 30
 
 log:
-  path: /
+  path: /temp/logs
 
 auth:
   # default, off, custom

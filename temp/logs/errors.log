@@ -13,3 +13,5 @@ Error:2022/09/26 16:43:08.702329 main.go:153: err: open /api/v1/: no such file o
 Error:2022/09/27 16:04:48.043002 proxy.go:115: err: open /api/v1/: no such file or directory
 Error:2022/09/27 16:06:22.360765 proxy.go:115: err: open /api/v1/: no such file or directory
 Error:2022/09/27 16:07:30.395697 proxy.go:115: err: open /api/v1/: no such file or directory
+Error:2022/10/06 04:37:16.181753 proxy.go:115: err: open /api/v1/: no such file or directory
+Error:2022/10/06 12:54:34.977642 proxy.go:115: err: open /api/v1/: no such file or directory

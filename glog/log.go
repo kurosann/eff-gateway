@@ -15,9 +15,9 @@ var (
 )
 
 func init() {
-	errFile, err := os.OpenFile(fmt.Sprintf("../..%s/errors.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	warnFile, err := os.OpenFile(fmt.Sprintf("../..%s/warning.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	infoFile, err := os.OpenFile(fmt.Sprintf("../..%s/info.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	errFile, err := os.OpenFile(fmt.Sprintf("./%s/errors.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	warnFile, err := os.OpenFile(fmt.Sprintf("./%s/warning.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	infoFile, err := os.OpenFile(fmt.Sprintf("./%s/info.log", setting.Config.Log.Path), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalln("打开日志文件失败")
 	}
