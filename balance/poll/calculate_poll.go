@@ -1,9 +1,9 @@
 package poll
 
 import (
+	"eff-gateway/balance/poll/types"
 	"errors"
 	"fmt"
-	"go-gateway/balance/poll/types"
 )
 
 // ServerTimeFragment

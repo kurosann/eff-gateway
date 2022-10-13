@@ -11,8 +11,7 @@ var (
 )
 
 func init() {
-	getConfig(&Config)
-	checkConfig()
+	Config = initConfig().checkConfig()
 }
 
 type conf struct {
@@ -21,33 +20,39 @@ type conf struct {
 }
 
 type ServerConfig struct {
-	Port        int `json:"port"`
-	ReadTimout  int `json:"readTimout"`
-	WriteTimout int `json:"writeTimout"`
+	Port           int `yaml:"port"`
+	ReadTimout     int `yaml:"readTimout"`
+	WriteTimout    int `yaml:"writeTimout"`
+	ShutdownTimout int `yaml:"shutdownTimout"`
 }
 
 type LogConfig struct {
-	Path  string `json:"path"`
-	Level string `json:"level"`
+	Path  string `yaml:"path"`
+	Level string `yaml:"level"`
 }
 
 type Balance struct {
-	Strategy      string `json:"strategy"`
-	DefaultWeight string `json:"defaultWeight"`
+	Strategy      string `yaml:"strategy"`
+	DefaultWeight string `yaml:"defaultWeight"`
 }
 
-func getConfig(conf *conf) {
-	config, err := ioutil.ReadFile("../setting/setting.yml")
+func initConfig() conf {
+	config, err := ioutil.ReadFile("setting/setting.yaml")
 	if err != nil {
-		log.Println("读取配置文件失败")
+		log.Println("读取配置文件失败:", err.Error())
+		return conf{}
 	}
-	err = yaml.Unmarshal(config, &conf)
+
+	var c conf
+	err = yaml.Unmarshal(config, &c)
 	if err != nil {
-		log.Println("配置文件序列化失败")
+		log.Println("配置文件序列化失败:", err.Error())
+		return conf{}
 	}
+	return c
 }
 
-func checkConfig() {
+func (c conf) checkConfig() conf {
 	if Config.Server.Port == 0 {
 		Config.Server.Port = 8000
 	}
@@ -57,4 +62,8 @@ func checkConfig() {
 	if Config.Server.WriteTimout == 0 {
 		Config.Server.WriteTimout = 500
 	}
+	if Config.Server.ShutdownTimout == 0 {
+		Config.Server.ShutdownTimout = 30
+	}
+	return c
 }
