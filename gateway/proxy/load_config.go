@@ -96,6 +96,7 @@ func storeLocalJson(response types.GlobalHttp) {
 	for _, config := range response.HttpList {
 		// 遍历http配置里的server
 		var cacheMap = LocalCache{}
+		cacheMap.ServerMap = map[string]types.Server{}
 		for i, v := range config.Server {
 			cacheMap.ServerMap[v.ServerName] = config.Server[i]
 		}
