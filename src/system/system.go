@@ -2,7 +2,8 @@ package system
 
 import (
 	"context"
-	"go-gateway/src/proxy"
+	"eff-gateway/gateway/proxy"
+
 	"log"
 	"net/http"
 	"os"
