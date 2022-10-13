@@ -1,9 +1,9 @@
 package proxy
 
 import (
+	"eff-gateway/balance"
 	"errors"
 	"fmt"
-	"go-gateway/balance"
 	"io"
 	"net/http"
 	"net/http/httputil"

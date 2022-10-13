@@ -1,10 +1,10 @@
 package proxy
 
 import (
+	"eff-gateway/gateway/proxy/types"
+	"eff-gateway/glog"
 	"encoding/json"
 	"fmt"
-	"go-gateway/glog"
-	"go-gateway/src/proxy/types"
 	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"

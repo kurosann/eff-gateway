@@ -1,8 +1,8 @@
 package proxy
 
 import (
+	"eff-gateway/gateway/proxy/types"
 	"fmt"
-	"go-gateway/src/proxy/types"
 	"testing"
 )
 
