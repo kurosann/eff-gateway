@@ -1,0 +1,35 @@
+http_list:
+  - default_type: application/octet-stream
+    sendfile: on
+    scheme: http
+    ip_addr: 127.0.0.1
+    domain: localhost
+    listen: 9001
+    keepalive_timeout: 65
+    server:
+      - server_name: localhost1
+        location:
+          - location_path: "/"
+            proxy_path: "/v1"
+          - location_path: "/1"
+            proxy_path: "/v2"
+          - location_path: "/1/"
+            proxy_path: "/v3"
+
+  - default_type: application/octet-stream
+    sendfile: on
+    scheme: http
+    ip_addr: 127.0.0.1
+    domain: localhost
+    listen: 9002
+    keepalive_timeout: 65
+    server:
+      - server_name: localhost12
+        listen: 9002
+        location:
+          - location_path: "/"
+            proxy_path: "/api1"
+          - path: "a1/"
+            proxy_path: "/api2"
+          - location_path: "a2"
+            proxy_path: "/api3"

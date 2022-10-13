@@ -47,11 +47,13 @@ func (c *Consistent) Add(node string, virtualNodeCount int) error {
 		return errors.New("node already existed")
 	}
 	c.nodes[node] = true
+
 	//增加虚拟结点
 	for i := 0; i < virtualNodeCount; i++ {
 		virtualKey := c.hashKey(node + strconv.Itoa(i))
 		c.circle[virtualKey] = node
 		c.hashSortedNodes = append(c.hashSortedNodes, virtualKey)
+		c.virtualNodeCount += 1
 	}
 
 	//虚拟结点排序
@@ -78,9 +80,14 @@ func (c *Consistent) AddReqs(ipAddr string, v ...int) error {
 
 	return nil
 }
-func (c *Consistent) SendMsg() error {
+
+func (c *Consistent) Update() error {
 
 	return nil
+}
+
+func (c *Consistent) GetCycles() int {
+	return c.virtualNodeCount
 }
 
 // getPosition

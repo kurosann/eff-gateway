@@ -13,32 +13,20 @@ func TestStrategy(t *testing.T) {
 	sg.AddStrategy("ces")
 	var myServerConf = sg.GetServer("ces")
 	for i := 1; i < 6; i++ {
-		myServerConf.impl.Add("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i)
-		myServerConf.impl.SendMsg()
+		myServerConf.Impl.Add("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i)
+		myServerConf.Impl.Update()
 	}
 
 	task := func() {
 
 		for i := 1; i < 6; i++ {
-			myServerConf.impl.AddReqs("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i, rand.Intn(1000)*i*i)
+			myServerConf.Impl.AddReqs("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i, rand.Intn(1000)*i*i)
 		}
-		myServerConf.impl.SendMsg()
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
-		fmt.Println("服务器地址：", myServerConf.impl.GetNode("ces"))
+		myServerConf.Impl.Update()
+
+		for i := 0; i < myServerConf.Impl.GetCycles(); i++ {
+			fmt.Println("服务器地址：", myServerConf.Impl.GetNode("ces"))
+		}
 	}
 	crontab := cron.New(cron.WithSeconds()) //精确到秒
 	//定时任务

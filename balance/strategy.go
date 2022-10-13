@@ -6,6 +6,8 @@ import (
 	"sync"
 )
 
+var GlobalStrategy = &StrategyRegister{}
+
 type StrategyRegister struct {
 	StrategyFunc string
 	ServerMap    sync.Map //存储服务策略
@@ -15,15 +17,20 @@ type PollStrategy interface {
 	Add(addr string, weight int) error
 	GetNode(serverName string) string
 	AddReqs(addr string, v ...int) error
-	SendMsg() error
+	Update() error
+	GetCycles() int
 }
 
 type Strategy struct {
-	impl PollStrategy
+	Impl PollStrategy
 }
 
-func (r *Strategy) SetVehicle(i PollStrategy) {
-	r.impl = i
+func (r *Strategy) SetStrategy(ps PollStrategy) {
+	r.Impl = ps
+}
+
+func init() {
+	GlobalStrategy = NewStrategy()
 }
 
 func NewStrategy() *StrategyRegister {
@@ -39,7 +46,7 @@ func (sr *StrategyRegister) AddStrategy(sName string) {
 	case "ip_hash":
 		iph := &ip_hash.Consistent{}
 		traveler := Strategy{}
-		traveler.SetVehicle(iph)
+		traveler.SetStrategy(iph)
 		sr.ServerMap.Store(sName, traveler)
 		break
 	case "smooth_poll":
@@ -56,7 +63,7 @@ func (sr *StrategyRegister) pollServer(sName string) {
 	stf := poll.NewIPServer(sName)
 	go stf.Subscription.WeightUpdate()
 	traveler := &Strategy{}
-	traveler.SetVehicle(stf)
+	traveler.SetStrategy(stf)
 	sr.ServerMap.Store(sName, traveler)
 }
 
