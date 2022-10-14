@@ -6,7 +6,7 @@ type GlobalHttp struct {
 
 type HttpConfig struct {
 	Scheme           string   `json:"scheme" yaml:"scheme"`
-	IpAddr           string   `json:"ip_addr" yaml:"ip_Addr"`
+	IpAddr           string   `json:"ip_addr" yaml:"ip_addr"`
 	Domain           string   `json:"domain" yaml:"domain"`
 	Listen           string   `json:"listen" yaml:"listen"` // 监听端口
 	DefaultType      string   `json:"default_type" yaml:"default_type"`

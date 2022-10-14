@@ -4,7 +4,7 @@ http_list:
     scheme: http
     ip_addr: 127.0.0.1
     domain: localhost
-    listen: 9001
+    listen: 8080
     keepalive_timeout: 65
     server:
       - server_name: localhost1
@@ -19,8 +19,8 @@ http_list:
   - default_type: application/octet-stream
     sendfile: on
     scheme: http
-    ip_addr: 127.0.0.1
-    domain: localhost
+    ip_addr: 127.0.0.10
+    domain: localhost.com
     listen: 9002
     keepalive_timeout: 65
     server:
