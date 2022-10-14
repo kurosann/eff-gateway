@@ -30,6 +30,8 @@ func (s *TypeMuxSubscription) subChan() chan *TypeMuxEvent {
 	return s.readC
 }
 
+// WeightUpdate
+// 更新轮询权重
 func (s *TypeMuxSubscription) WeightUpdate() {
 
 	r := s.subChan()

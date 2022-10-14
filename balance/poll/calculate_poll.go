@@ -42,15 +42,15 @@ func (it *ServerTimeFragment) Add(addr string, weight int) error {
 	return nil
 }
 
-func (it *ServerTimeFragment) AddReqs(ipAddr string, v ...int) error {
+func (it *ServerTimeFragment) AddReqs(ipAddr string, v int) error {
 	info := it.GetAddr(ipAddr)
 	if info != nil {
-		info.AddCumulative(v[0], v[1])
+		info.AddCumulative(v, 1)
 	}
 	return nil
 }
 func (it *ServerTimeFragment) Update() error {
-
+	it.RemoveCumulative()
 	it.Subscription.SendMsg(it)
 	return nil
 }
@@ -131,15 +131,14 @@ func (it *ServerTimeFragment) weightProportionSort() {
 func (it *ServerTimeFragment) GetAddr(ipAddr string) *types.IPTimeInfo {
 	for _, info := range it.IPList {
 		if info.Addr == ipAddr {
-
 			if info == nil {
 				fmt.Println("info:nil")
 			}
-			if info.CumulativeRequest == 0 {
-				fmt.Println("CumulativeRequest:0")
+			if info.CacheRequest == 0 {
+				fmt.Println("CacheRequest:0")
 			}
-			if info.CumulativeTime == 0 {
-				fmt.Println("CumulativeTime:0")
+			if info.CacheTime == 0 {
+				fmt.Println("CacheTime:0")
 			}
 			return info
 		}

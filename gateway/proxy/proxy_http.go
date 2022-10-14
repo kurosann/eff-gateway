@@ -2,13 +2,13 @@ package proxy
 
 import (
 	"eff-gateway/balance"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"strings"
+	"time"
 )
 
 var (
@@ -35,37 +35,41 @@ func HostReverseProxyV1(w http.ResponseWriter, r *http.Request) {
 	proxyHost := bl.GetServer(loadProxy.ServerName).Impl.GetNode(loadProxy.ServerName)
 	proxyHost += loadProxy.ProxyPath
 	// parse the url
-	reverseProxy, err := NewProxy(proxyHost)
+	reverseProxy, err := NewProxy(proxyHost, loadProxy.ServerName)
 
 	if err != nil {
 		panic(err)
 	}
 	reverseProxy.ServeHTTP(w, r)
+
 }
 
 // NewProxy takes target host and creates a reverse proxy
-func NewProxy(targetHost string) (*httputil.ReverseProxy, error) {
+func NewProxy(targetHost, serverName string) (*httputil.ReverseProxy, error) {
 	// 解析目标地址
-	url, err := url.Parse(targetHost)
+	targetUrl, err := url.Parse(targetHost)
 	if err != nil {
 		return nil, err
 	}
 
-	proxy := httputil.NewSingleHostReverseProxy(url)
+	proxy := httputil.NewSingleHostReverseProxy(targetUrl)
 
 	originalDirector := proxy.Director
 	proxy.Director = func(req *http.Request) {
 		originalDirector(req)
-		modifyRequest(req)
+		modifyRequest(req, targetUrl)
 	}
 
-	proxy.ModifyResponse = modifyResponse()
+	proxy.ModifyResponse = modifyResponse(targetUrl.Scheme+"://"+targetUrl.Host, serverName)
 	proxy.ErrorHandler = errorHandler()
 	return proxy, nil
 }
 
-func modifyRequest(req *http.Request) {
-	req.Header.Set("X-Proxy", "Simple-Reverse-Proxy")
+func modifyRequest(req *http.Request, u *url.URL) {
+	// 自定义请求前的操作
+	// 如下
+	req.Header.Set("X-Forwarded-Host", req.Header.Get("Host"))
+
 }
 
 func errorHandler() func(http.ResponseWriter, *http.Request, error) {
@@ -75,15 +79,21 @@ func errorHandler() func(http.ResponseWriter, *http.Request, error) {
 	}
 }
 
-func modifyResponse() func(*http.Response) error {
+func modifyResponse(targetUrl, serverName string) func(*http.Response) error {
+	startTime := time.Now().UnixMilli()
 	return func(resp *http.Response) error {
-		return errors.New("response body is invalid")
+		bl := balance.GlobalStrategy
+		bl.GetServer(serverName).Impl.AddReqs(targetUrl, int(time.Now().UnixMilli()-startTime))
+		//return errors.New("response body is invalid")
+		return nil
 	}
 }
 
 // ProxyRequestHandler handles the http request using proxy
 func ProxyRequestHandler(proxy *httputil.ReverseProxy) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
+		r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))
+		r.URL.RequestURI()
 		proxy.ServeHTTP(w, r)
 	}
 }

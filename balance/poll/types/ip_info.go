@@ -7,6 +7,8 @@ type IPTimeInfo struct {
 	Weight            int    // 权重
 	CumulativeTime    int    // 累积计时间
 	CumulativeRequest int    // 累积计请求数
+	CacheTime         int    // 快照缓存累积计时间
+	CacheRequest      int    // 快照缓存累积计请求数
 	LastPerformance   int    // 上一次的性能
 	IsActive          bool   // 该ip是否活跃
 }
@@ -23,16 +25,19 @@ func NewIpInfo(Addr string, Weight int) *IPTimeInfo {
 // 移除累积
 func (itf *IPTimeInfo) RemoveCumulative() bool {
 	// 进行锁
-	itf.CumulativeTime = 0
-	itf.CumulativeRequest = 0
+	itf.CumulativeTime = 0 + itf.CacheTime
+	itf.CumulativeRequest = 0 + itf.CacheRequest
+	itf.CacheTime = 0
+	itf.CacheRequest = 0
 	return true
 }
 
 // AddCumulative
 // 添加累积
 func (itf *IPTimeInfo) AddCumulative(t, req int) {
-	itf.CumulativeTime += t
-	itf.CumulativeRequest += req
+
+	itf.CacheTime += t
+	itf.CacheRequest += req
 }
 
 // WriteLastPerformance
