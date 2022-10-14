@@ -31,7 +31,6 @@ func HostReverseProxyV1(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	var loadProxy = matchUrl(r.Host, r.URL.RequestURI())
-
 	bl := balance.GlobalStrategy
 	proxyHost := bl.GetServer(loadProxy.ServerName).Impl.GetNode(loadProxy.ServerName)
 	proxyHost += loadProxy.ProxyPath
@@ -72,6 +71,7 @@ func modifyRequest(req *http.Request, u *url.URL) {
 	req.Header.Set("X-Forwarded-Host", req.Header.Get("Host"))
 	req.URL = u
 	req.RequestURI = u.RequestURI()
+
 }
 
 func errorHandler() func(http.ResponseWriter, *http.Request, error) {
@@ -88,15 +88,6 @@ func modifyResponse(targetUrl, serverName string) func(*http.Response) error {
 		bl.GetServer(serverName).Impl.AddReqs(targetUrl, int(time.Now().UnixMilli()-startTime))
 		//return errors.New("response body is invalid")
 		return nil
-	}
-}
-
-// ProxyRequestHandler handles the http request using proxy
-func ProxyRequestHandler(proxy *httputil.ReverseProxy) func(http.ResponseWriter, *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-		r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))
-		r.URL.RequestURI()
-		proxy.ServeHTTP(w, r)
 	}
 }
 
@@ -119,14 +110,15 @@ func matchUrl(hostUrl, allPath string) LoadProxy {
 			// httpUrl = http://127.0.0.1:8001/admin-app/v1/ap/
 			if strings.Contains(allPath, location.LocationPath) {
 				lp.ServerName = server.ServerName
-				lp.ProxyPath = location.ProxyPath
-				if location.ProxyPath == "" || location.ProxyPath == "/" {
-					lp.ProxyPath = strings.Split(allPath, hostUrl)[1]
+				if location.LocationPath != "" && location.LocationPath != "/" {
+					lp.ProxyPath = location.ProxyPath + strings.Split(allPath, location.LocationPath)[1]
+				} else {
+					lp.ProxyPath = strings.Split(allPath, server.ServerName)[1]
 				}
-				LoadProxyUrlMap[allPath] = lp
 			}
 		}
 		if lp.ProxyPath != "" {
+			LoadProxyUrlMap[allPath] = lp
 			return lp
 		}
 	}
