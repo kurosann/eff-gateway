@@ -76,7 +76,7 @@ func (c *Consistent) GetNode(key string) string {
 	return c.circle[c.hashSortedNodes[i]]
 }
 
-func (c *Consistent) AddReqs(ipAddr string, v ...int) error {
+func (c *Consistent) AddReqs(ipAddr string, v int) error {
 
 	return nil
 }

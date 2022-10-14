@@ -16,7 +16,7 @@ type StrategyRegister struct {
 type PollStrategy interface {
 	Add(addr string, weight int) error
 	GetNode(serverName string) string
-	AddReqs(addr string, v ...int) error
+	AddReqs(addr string, v int) error
 	Update() error
 	GetCycles() int
 }
