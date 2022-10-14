@@ -23,26 +23,31 @@ type EffGateWay struct {
 }
 
 func Default() *EffGateWay {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/test", proxy.Forward)
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
 		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
 		WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
+		Handler:      mux,
 	}
 	gateWay := &EffGateWay{
 		server:    server,
 		isClose:   false,
 		closeChan: make(chan byte, 100),
 	}
-	gateWay.initRouter()
 	return gateWay
 }
 
 func (g *EffGateWay) Run() {
 	if g.server == nil {
+		mux := http.NewServeMux()
+		mux.HandleFunc("/test", proxy.Forward)
 		g.server = &http.Server{
 			Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
 			ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
 			WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
+			Handler:      mux,
 		}
 	}
 
@@ -60,11 +65,12 @@ func (g *EffGateWay) runHTTPSv() {
 	}
 
 }
-func (g *EffGateWay) initRouter() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/*", proxy.Forward)
-	g.server.Handler = mux
-}
+
+//func (g *EffGateWay) initRouter() {
+//	mux := http.NewServeMux()
+//	mux.HandleFunc("/test", proxy.Forward)
+//	g.server.Handler = mux
+//}
 
 func (g *EffGateWay) osKill() {
 	s := make(chan os.Signal, 1)

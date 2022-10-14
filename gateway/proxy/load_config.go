@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	yaml "gopkg.in/yaml.v2"
-	"io/ioutil"
 	"os"
 )
 
@@ -77,7 +76,7 @@ func loadYaml(respond interface{}, path string) error {
 		path = LocalYamlFilePath
 	}
 	// 创建json解码器
-	buf, err := ioutil.ReadFile(path)
+	buf, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}

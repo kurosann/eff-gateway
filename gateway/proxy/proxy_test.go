@@ -2,10 +2,15 @@ package proxy
 
 import (
 	"eff-gateway/balance"
+	"eff-gateway/gateway/proxy/types"
+	"eff-gateway/setting"
+	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"testing"
+	"time"
 )
 
 func TestServer(t *testing.T) {
@@ -58,4 +63,39 @@ func TestProxyServer(t *testing.T) {
 	//})
 	//
 	//log.Fatal(http.ListenAndServe(":9001", nil))
+}
+
+func TestServe(t *testing.T) {
+
+	type JsonResult struct {
+		Code int    `json:"code"`
+		Msg  string `json:"msg"`
+	}
+
+	// handle all requests to your server using the proxy
+	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+		fmt.Println("收到")
+		msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
+		writer.Header().Set("content-type", "text/json")
+		writer.Write(msg)
+		return
+	})
+
+	log.Fatal(http.ListenAndServe(":9001", nil))
+}
+
+func TestProxyReq(t *testing.T) {
+	ProxyMap["/test"] = types.Proxy{IPAddr: "127.0.0.1:9001",
+		Prefix:        "",
+		Upstream:      "/test",
+		RewritePrefix: ""}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", Forward)
+	server := &http.Server{
+		Addr:         fmt.Sprintf(":%d", 8001),
+		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
+		WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
+		Handler:      mux,
+	}
+	log.Fatalln(server.ListenAndServe())
 }

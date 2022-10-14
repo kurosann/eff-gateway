@@ -20,7 +20,7 @@ func TestStrategy(t *testing.T) {
 	task := func() {
 
 		for i := 1; i < 6; i++ {
-			myServerConf.Impl.AddReqs("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i, rand.Intn(1000)*i*i)
+			myServerConf.Impl.AddReqs("127.0.0.1:800"+strconv.Itoa(i), rand.Intn(100)*i*i)
 		}
 		myServerConf.Impl.Update()
 

@@ -2,8 +2,8 @@ package setting
 
 import (
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 	"log"
+	"os"
 )
 
 var (
@@ -21,9 +21,9 @@ type conf struct {
 
 type ServerConfig struct {
 	Port           int `yaml:"port"`
-	ReadTimout     int `yaml:"readTimout"`
-	WriteTimout    int `yaml:"writeTimout"`
-	ShutdownTimout int `yaml:"shutdownTimout"`
+	ReadTimout     int `yaml:"readTimeout"`
+	WriteTimout    int `yaml:"writeTimeout"`
+	ShutdownTimout int `yaml:"shutdownTimeout"`
 }
 
 type LogConfig struct {
@@ -37,7 +37,7 @@ type Balance struct {
 }
 
 func initConfig() conf {
-	config, err := ioutil.ReadFile("setting/setting.yaml")
+	config, err := os.ReadFile("setting/setting.yaml")
 	if err != nil {
 		log.Println("读取配置文件失败:", err.Error())
 		return conf{}

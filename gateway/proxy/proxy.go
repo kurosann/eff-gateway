@@ -7,7 +7,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
@@ -16,7 +15,7 @@ import (
 )
 
 var (
-	proxyMap = make(map[string]types.Proxy)
+	ProxyMap = make(map[string]types.Proxy)
 )
 
 var adminUrl = flag.String("adminUrl", "/api/v1/", "admin的地址")
@@ -24,7 +23,6 @@ var profile = flag.String("profile", "", "环境")
 var proxyFile = flag.String("proxyFile", "/api/v1/", "测试环境的数据")
 
 func init() {
-	proxyMap["clean/add/"] = types.Proxy{Prefix: "", Upstream: "/api/v1/clean/add", RewritePrefix: ""}
 	if *profile != "" {
 		glog.InfoLog.Printf("加载远端数据: %s", *adminUrl)
 		InitProxyList()
@@ -41,7 +39,7 @@ func Forward(writer http.ResponseWriter, request *http.Request) {
 func InitProxyList() {
 	resp, _ := http.Get(*adminUrl)
 	if resp != nil && resp.StatusCode == 200 {
-		bytes, err := ioutil.ReadAll(resp.Body)
+		bytes, err := io.ReadAll(resp.Body)
 		defer resp.Body.Close()
 		if err != nil {
 			fmt.Println("ioutil.ReadAll err=", err)
@@ -56,15 +54,15 @@ func InitProxyList() {
 		proxyList := response.Data
 		for _, proxy := range proxyList {
 			//追加 反斜杠，为了动态匹配的时候 防止 /proxy/test  /proxy/test1 无法正确转发
-			proxyMap[proxy.Prefix+"/"] = proxy
+			ProxyMap[proxy.Prefix+"/"] = proxy
 		}
 	}
 }
 
 // HostReverseProxy
 // 请求代理的实现函数
-// w 响应写入
-// r http请求
+// @Param w 响应写入
+// @Param r http请求
 func HostReverseProxy(w http.ResponseWriter, r *http.Request) {
 	if r.RequestURI == "/favicon.ico" {
 		io.WriteString(w, "Request path Error")
@@ -73,21 +71,23 @@ func HostReverseProxy(w http.ResponseWriter, r *http.Request) {
 	//从内存里面获取转发的url
 	//去掉开头
 	upstream := ""
-	value, ok := proxyMap[r.RequestURI]
+	value, ok := ProxyMap[r.RequestURI]
 	if ok {
 		upstream = suffixURI(value)
 		r.URL.Path = strings.ReplaceAll(r.URL.Path, r.RequestURI, "")
 	}
-	// parse the url
-	remote, err := url.Parse(upstream)
+	// 解析url
+	remote, err := url.Parse("http://" + value.IPAddr + upstream)
 	glog.InfoLog.Printf("RequestURI %s upstream %s remote %s", r.RequestURI, upstream, remote)
 	if err != nil {
-		panic(err)
+		glog.InfoLog.Println(err)
 	}
 
 	r.URL.Host = remote.Host
 	r.URL.Scheme = remote.Scheme
 	r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))
+	r.Header.Set("Upgrade", r.Header.Get("websocket"))
+	r.Header.Set("Connection", r.Header.Get("Upgrade"))
 	r.Host = remote.Host
 
 	httputil.NewSingleHostReverseProxy(remote).ServeHTTP(w, r)
@@ -110,7 +110,7 @@ func LoadProxyListFromFile() {
 		// 拼接的 key 例子：
 		// proxy.Prefix = ？
 		// proxy.Prefix+"/" = http://127.0.0.1:8087/admin
-		proxyMap[proxy.Prefix+"/"] = proxy
+		ProxyMap[proxy.Prefix+"/"] = proxy
 	}
 }
 
