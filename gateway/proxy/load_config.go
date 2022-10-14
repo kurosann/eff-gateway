@@ -23,19 +23,31 @@ type LocalCache struct {
 	ServerMap  map[string]types.Server
 }
 
-//func init() {
-//
-//	var respond types.GlobalHttp
-//	err := loadYaml(&respond, "")
-//	if err != nil {
-//		return
-//	}
-//	if len(respond.HttpList) == 0 {
-//		loadJson(&respond, "")
-//	}
-//	storeLocalJson(respond)
-//	checkConfig()
-//}
+func init() {
+	InitConfig()
+}
+
+func GetLocalProxyCache(name string) LocalCache {
+	if v, k := LocalProxyCache[name]; k {
+		return v
+	} else {
+		InitConfig()
+		return LocalProxyCache[name]
+	}
+}
+
+func InitConfig() {
+	var respond types.GlobalHttp
+	err := loadYaml(&respond, "")
+	if err != nil {
+		panic(err)
+	}
+	if len(respond.HttpList) == 0 {
+		loadJson(&respond, "")
+	}
+	storeLocalConfig(respond)
+	checkConfig()
+}
 
 // LoadJson
 // 解析本地配置
@@ -91,7 +103,7 @@ func checkConfig() {
 
 // StoreLocalJson
 // 遍历数据结构，缓存数据
-func storeLocalJson(response types.GlobalHttp) {
+func storeLocalConfig(response types.GlobalHttp) {
 	// 遍历全部的配置文件的http配置
 	for _, config := range response.HttpList {
 		// 遍历http配置里的server
@@ -104,6 +116,7 @@ func storeLocalJson(response types.GlobalHttp) {
 		if config.IpAddr != "" {
 			LocalProxyCache[config.IpAddr+":"+config.Listen] = cacheMap
 		}
+
 		if config.Domain != "" {
 			LocalProxyCache[config.Domain+":"+config.Listen] = cacheMap
 		}

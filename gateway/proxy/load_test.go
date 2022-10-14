@@ -17,7 +17,7 @@ func TestLocalConfig(t *testing.T) {
 	if len(respond.HttpList) == 0 {
 		loadJson(&respond, "")
 	}
-	storeLocalJson(respond)
+	storeLocalConfig(respond)
 	checkConfig()
 
 }
