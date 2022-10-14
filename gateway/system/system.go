@@ -23,13 +23,11 @@ type EffGateWay struct {
 }
 
 func Default() *EffGateWay {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/test", proxy.Forward)
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
 		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
 		WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
-		Handler:      mux,
+		Handler:      initRouter(),
 	}
 	gateWay := &EffGateWay{
 		server:    server,
@@ -41,36 +39,34 @@ func Default() *EffGateWay {
 
 func (g *EffGateWay) Run() {
 	if g.server == nil {
-		mux := http.NewServeMux()
-		mux.HandleFunc("/test", proxy.Forward)
 		g.server = &http.Server{
 			Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
 			ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
 			WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
-			Handler:      mux,
+			Handler:      initRouter(),
 		}
 	}
 
-	go g.runHTTPSv()
-	go g.osKill()
 	log.Println("Gateway service is running at port:", setting.Config.Server.Port)
-	g.shutdown()
+	go g.osKill()
+	g.runHTTPSv()
 }
 
 func (g *EffGateWay) runHTTPSv() {
 	err := g.server.ListenAndServe()
 	if err != nil {
 		g.close()
-		log.Println("server is closed")
+		g.shutdown()
+		log.Println("server is closing")
 	}
 
 }
 
-//func (g *EffGateWay) initRouter() {
-//	mux := http.NewServeMux()
-//	mux.HandleFunc("/test", proxy.Forward)
-//	g.server.Handler = mux
-//}
+func initRouter() *http.ServeMux {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", proxy.Forward(proxy.ProxyMap))
+	return mux
+}
 
 func (g *EffGateWay) osKill() {
 	s := make(chan os.Signal, 1)

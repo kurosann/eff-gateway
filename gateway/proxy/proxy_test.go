@@ -6,7 +6,6 @@ import (
 	"eff-gateway/setting"
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"testing"
@@ -30,40 +29,40 @@ func TestServer(t *testing.T) {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func TestProxyServer(t *testing.T) {
+//func TestProxyServer(t *testing.T) {
+//
+//	type JsonResult struct {
+//		Code int    `json:"code"`
+//		Msg  string `json:"msg"`
+//	}
+//	r := gin.Default()
+//	r.GET("/v2", func(c *gin.Context) {
+//		c.JSON(200, gin.H{
+//			"message": "pong",
+//		})
+//	})
+//
+//	r.Run(":9001") // listen and serve on 0.0.0.0:8080
 
-	type JsonResult struct {
-		Code int    `json:"code"`
-		Msg  string `json:"msg"`
-	}
-	r := gin.Default()
-	r.GET("/v2", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-
-	r.Run(":9001") // listen and serve on 0.0.0.0:8080
-
-	// handle all requests to your server using the proxy
-	//http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-	//	fmt.Println("收到")
-	//	msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
-	//	writer.Header().Set("content-type", "text/json")
-	//	writer.Write(msg)
-	//	return
-	//})
-	// handle all requests to your server using the proxy
-	//http.HandleFunc("/localhost1/v1", func(writer http.ResponseWriter, request *http.Request) {
-	//	fmt.Println("收到v1")
-	//	msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
-	//	writer.Header().Set("content-type", "text/json")
-	//	writer.Write(msg)
-	//	return
-	//})
-	//
-	//log.Fatal(http.ListenAndServe(":9001", nil))
-}
+// handle all requests to your server using the proxy
+//http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+//	fmt.Println("收到")
+//	msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
+//	writer.Header().Set("content-type", "text/json")
+//	writer.Write(msg)
+//	return
+//})
+// handle all requests to your server using the proxy
+//http.HandleFunc("/localhost1/v1", func(writer http.ResponseWriter, request *http.Request) {
+//	fmt.Println("收到v1")
+//	msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
+//	writer.Header().Set("content-type", "text/json")
+//	writer.Write(msg)
+//	return
+//})
+//
+//log.Fatal(http.ListenAndServe(":9001", nil))
+//}
 
 func TestServe(t *testing.T) {
 
@@ -73,7 +72,7 @@ func TestServe(t *testing.T) {
 	}
 
 	// handle all requests to your server using the proxy
-	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+	http.HandleFunc("/test", func(writer http.ResponseWriter, request *http.Request) {
 		fmt.Println("收到")
 		msg, _ := json.Marshal(JsonResult{Code: 400, Msg: "验证失败"})
 		writer.Header().Set("content-type", "text/json")
@@ -85,12 +84,14 @@ func TestServe(t *testing.T) {
 }
 
 func TestProxyReq(t *testing.T) {
-	ProxyMap["/test"] = types.Proxy{IPAddr: "127.0.0.1:9001",
-		Prefix:        "",
+	ProxyMap["/test"] = types.Proxy{
+		IPAddr:        "http://127.0.0.1:9001",
+		Prefix:        "/test",
 		Upstream:      "/test",
-		RewritePrefix: ""}
+		RewritePrefix: "",
+	}
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", Forward)
+	mux.HandleFunc("/", Forward(ProxyMap))
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", 8001),
 		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),

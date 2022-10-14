@@ -32,10 +32,6 @@ func init() {
 	}
 }
 
-func Forward(writer http.ResponseWriter, request *http.Request) {
-	HostReverseProxy(writer, request)
-}
-
 func InitProxyList() {
 	resp, _ := http.Get(*adminUrl)
 	if resp != nil && resp.StatusCode == 200 {
@@ -59,40 +55,53 @@ func InitProxyList() {
 	}
 }
 
-// HostReverseProxy
+// Forward
 // 请求代理的实现函数
 // @Param w 响应写入
 // @Param r http请求
-func HostReverseProxy(w http.ResponseWriter, r *http.Request) {
-	if r.RequestURI == "/favicon.ico" {
-		io.WriteString(w, "Request path Error")
-		return
-	}
-	//从内存里面获取转发的url
-	//去掉开头
-	upstream := ""
-	value, ok := ProxyMap[r.RequestURI]
-	if ok {
-		upstream = suffixURI(value)
-		r.URL.Path = strings.ReplaceAll(r.URL.Path, r.RequestURI, "")
-	}
-	// 解析url
-	remote, err := url.Parse("http://" + value.IPAddr + upstream)
-	glog.InfoLog.Printf("RequestURI %s upstream %s remote %s", r.RequestURI, upstream, remote)
-	if err != nil {
-		glog.InfoLog.Println(err)
+func Forward(ProxyMap map[string]types.Proxy) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.RequestURI == "/favicon.ico" {
+			io.WriteString(w, "Request path Error")
+			return
+		}
+		//从内存里面获取转发的url
+		//去掉开头
+		var value types.Proxy
+		var ok bool
+		for s, proxy := range ProxyMap {
+			if strings.HasPrefix(r.RequestURI, s) {
+				ok = true
+				value = proxy
+			}
+		}
+		if !ok {
+			io.WriteString(w, "404 Gateway error")
+			return
+		}
+
+		upstream := suffixURI(value)
+		if value.RewritePrefix != "" {
+			r.URL.Path = strings.ReplaceAll(r.RequestURI, value.Prefix, value.RewritePrefix)
+		}
+		// 解析url
+		remote, err := url.Parse(value.IPAddr)
+		glog.InfoLog.Printf("RequestURI:%s upstream:%s remote:%s", r.RequestURI, upstream, remote)
+		if err != nil {
+			glog.InfoLog.Println(err)
+		}
+
+		r.URL.Host = remote.Host
+		r.URL.Scheme = remote.Scheme
+		r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))
+		r.Header.Set("Upgrade", r.Header.Get("websocket"))
+		r.Header.Set("Connection", r.Header.Get("Upgrade"))
+
+		proxy := httputil.NewSingleHostReverseProxy(remote)
+		proxy.ServeHTTP(w, r)
 	}
 
-	r.URL.Host = remote.Host
-	r.URL.Scheme = remote.Scheme
-	r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))
-	r.Header.Set("Upgrade", r.Header.Get("websocket"))
-	r.Header.Set("Connection", r.Header.Get("Upgrade"))
-	r.Host = remote.Host
-
-	httputil.NewSingleHostReverseProxy(remote).ServeHTTP(w, r)
 }
-
 func LoadProxyListFromFile() {
 	file, err := os.Open(*proxyFile)
 	if err != nil {
@@ -121,6 +130,12 @@ func suffixURI(value types.Proxy) string {
 
 	//从内存里面获取转发的url
 	var upstream = ""
+	//如果首位不是/开头，则需要追加
+	if !strings.HasPrefix(value.RewritePrefix, "/") && value.RewritePrefix != "" {
+		upstream += "/" + value.RewritePrefix
+	} else {
+		upstream += value.RewritePrefix
+	}
 	//如果转发的地址是 / 结尾的,需要去掉
 	if strings.HasSuffix(value.Upstream, "/") {
 		upstream += strings.TrimRight(value.Upstream, "/")
@@ -128,11 +143,5 @@ func suffixURI(value types.Proxy) string {
 		upstream += value.Upstream
 	}
 
-	//如果首位不是/开头，则需要追加
-	if !strings.HasPrefix(value.RewritePrefix, "/") {
-		upstream += "/" + value.RewritePrefix
-	} else {
-		upstream += value.RewritePrefix
-	}
 	return upstream
 }

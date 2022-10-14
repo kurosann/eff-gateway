@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	yaml "gopkg.in/yaml.v2"
+	"log"
 	"os"
 )
 
@@ -39,7 +40,7 @@ func InitConfig() {
 	var respond types.GlobalHttp
 	err := loadYaml(&respond, "")
 	if err != nil {
-		panic(err)
+		log.Println(err.Error())
 	}
 	if len(respond.HttpList) == 0 {
 		loadJson(&respond, "")

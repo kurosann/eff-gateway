@@ -7,10 +7,12 @@ import (
 )
 
 func main() {
-	proxy.ProxyMap["/api/v1/add/"] = types.Proxy{IPAddr: "127.0.0.1:9001",
-		Prefix:        "",
+	proxy.ProxyMap["/test"] = types.Proxy{
+		IPAddr:        "http://127.0.0.1:9001",
+		Prefix:        "/test",
 		Upstream:      "/test",
-		RewritePrefix: ""}
+		RewritePrefix: "",
+	}
 	gateWay := system.Default()
 	gateWay.Run()
 }
