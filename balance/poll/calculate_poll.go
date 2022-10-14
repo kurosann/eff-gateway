@@ -49,10 +49,25 @@ func (it *ServerTimeFragment) AddReqs(ipAddr string, v ...int) error {
 	}
 	return nil
 }
-func (it *ServerTimeFragment) SendMsg() error {
+func (it *ServerTimeFragment) Update() error {
 
 	it.Subscription.SendMsg(it)
 	return nil
+}
+
+func (it *ServerTimeFragment) GetCycles() int {
+	var weights = 0
+	for i := 0; i < len(it.Rss.rss); i++ {
+		weights += it.Rss.rss[i].weight
+	}
+	return weights
+}
+
+func (it *ServerTimeFragment) GetNode(serverName string) string {
+	if it.ServerName != serverName {
+		return ""
+	}
+	return it.Rss.Next()
 }
 
 func (it *ServerTimeFragment) RemoveCumulative() {
@@ -111,13 +126,6 @@ func (it *ServerTimeFragment) weightProportionSort() {
 	}
 	it.DefaultWeight = it.DefaultWeight / len(it.IPList)
 	fmt.Println("平均权重: ", it.DefaultWeight)
-}
-
-func (it *ServerTimeFragment) GetNode(serverName string) string {
-	if it.ServerName != serverName {
-		return ""
-	}
-	return it.Rss.Next()
 }
 
 func (it *ServerTimeFragment) GetAddr(ipAddr string) *types.IPTimeInfo {
