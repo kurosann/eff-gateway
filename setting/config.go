@@ -15,8 +15,9 @@ func init() {
 }
 
 type conf struct {
-	Server ServerConfig `json:"server"`
-	Log    LogConfig    `json:"log"`
+	Server ServerConfig `yaml:"server"`
+	Log    LogConfig    `yaml:"log"`
+	Etcd   Etcd         `yaml:"etcd"`
 }
 
 type ServerConfig struct {
@@ -34,6 +35,11 @@ type LogConfig struct {
 type Balance struct {
 	Strategy      string `yaml:"strategy"`
 	DefaultWeight string `yaml:"defaultWeight"`
+}
+
+type Etcd struct {
+	Endpoint    []string `yaml:"endpoint"`
+	DialTimeout int      `yaml:"dialTimeout"`
 }
 
 func initConfig() conf {

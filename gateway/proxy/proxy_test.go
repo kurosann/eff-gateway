@@ -93,7 +93,7 @@ func TestProxyReq(t *testing.T) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", Forward(ProxyMap))
 	server := &http.Server{
-		Addr:         fmt.Sprintf(":%d", 8001),
+		Addr:         fmt.Sprintf(":%d", 8081),
 		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout),
 		WriteTimeout: time.Duration(setting.Config.Server.WriteTimout),
 		Handler:      mux,

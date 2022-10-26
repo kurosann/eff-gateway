@@ -14,3 +14,363 @@ Info:2022/09/27 16:06:22.360289 proxy.go:44: 加载本地配置数据: /api/v1/
 Info:2022/09/27 16:07:30.395418 proxy.go:44: 加载本地配置数据: /api/v1/
 Info:2022/10/06 04:37:16.181451 proxy.go:44: 加载本地配置数据: /api/v1/
 Info:2022/10/06 12:54:34.977092 proxy.go:44: 加载本地配置数据: /api/v1/
+Info:2022/10/14 15:51:36.982763 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 15:52:13.821382 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 15:56:15.138514 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 15:57:30.633364 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:02:53.900600 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:05:32.158258 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:05:53.355826 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:06:27.685878 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:07:33.839661 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:07:59.518256 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:14:02.786932 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:14:16.124995 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:15:10.881494 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:15:30.056544 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 16:21:15.897489 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:12:57.512884 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:14:06.002436 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:14:32.733759 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:15:15.449513 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:15:33.871674 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:15:43.083265 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:16:10.425182 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:16:27.935538 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:16:51.279709 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:17:00.615835 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:17:15.426927 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:17:16.951743 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:17:34.586839 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:17:59.788513 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:18:03.336327 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:18:07.540121 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:18:12.564578 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:18:15.109502 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:18:48.635523 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:18:52.231815 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:06.758450 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:19:16.084763 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:17.840856 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:19.395406 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:22.184564 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:30.395807 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:19:37.669568 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:38.539859 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:42.249996 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:43.576842 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:19:54.374265 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:20:04.051868 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:04.831013 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:16.328844 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:20:26.264710 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:37.350557 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:20:42.130446 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:42.918536 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:44.597271 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:46.056346 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:20:52.215989 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:21:06.688117 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:21:45.891602 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:21:47.802687 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:21:51.849413 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:21:53.262110 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:21:53.993368 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:22:14.281722 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:22:38.731203 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:23:19.022730 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:23:21.702796 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:23:57.862868 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:38.532152 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:39.476664 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:39.862897 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:40.388307 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:41.453384 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:42.011445 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:24:47.395909 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:29:03.336400 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:29:28.255825 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:29:32.788780 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:29:33.698757 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:31:24.162118 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:36:59.505555 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:37:19.666172 proxy.go:88: RequestURI /test upstream /test remote http://127.0.0.1:9001/test
+Info:2022/10/14 18:46:47.520166 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:46:52.259654 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:46:55.715005 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:46:58.273710 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:47:00.325314 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:47:04.266695 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:47:48.509677 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:47:58.106818 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:48:11.349541 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:48:18.516326 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:48:24.331882 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:56:43.199500 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 18:57:35.466432 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:57:41.361973 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:57:45.219755 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:58:08.793197 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:58:09.273493 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:58:15.245433 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:58:30.135791 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:34.460799 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:38.356202 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:41.852640 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:43.051119 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:43.475080 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:44.952489 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:45.418614 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:45.887158 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:46.344186 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 18:59:50.503783 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:07.330920 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 19:01:14.613583 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:15.748624 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:16.180434 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:18.835688 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:20.209675 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:27.083038 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:28.054701 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:28.826110 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:29.183900 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:29.650068 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:30.082865 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:34.584495 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:35.021532 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:35.962099 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:36.285876 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:37.035516 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:01:41.617387 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:02:26.929490 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/14 19:02:30.648084 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:02:32.897322 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:02:33.775156 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:02:35.717686 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/14 19:03:53.558771 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:22:00.067079 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:26:49.114150 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:30:43.547716 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:31:37.538998 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:32:20.839415 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:32:45.655428 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:32:56.812230 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:33:50.339426 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:34:30.746837 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:36:10.256044 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:36:32.778969 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:38:00.620897 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:39:08.953799 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:40:12.686535 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:40:23.008817 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:41:34.753638 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:42:34.550646 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:44:28.050359 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:45:44.435523 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:46:49.124982 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:47:29.498420 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:48:13.944695 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:48:23.880077 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:48:35.840803 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:49:13.465410 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:49:27.652840 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:50:27.286663 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:53:02.189663 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 10:53:03.937378 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:53:04.837732 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:53:05.224757 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 10:53:05.562566 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+Info:2022/10/26 11:23:41.707533 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 11:24:46.107972 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 11:24:58.312113 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 12:11:03.795128 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 12:12:14.769668 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 12:14:46.714385 proxy.go:30: 加载本地配置数据: /api/v1/
+Info:2022/10/26 12:14:46.717399 etcd_client.go:25: connect to etcd success
+[Info]:2022/10/26 12:16:38.654389 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:16:38.657042 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:21:48.245085 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:21:48.245759 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:21:55.631531 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:07.279033 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:08.874223 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:09.350272 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:09.706651 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:10.074483 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:10.463628 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:10.857233 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:11.194338 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:11.535280 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:12.209113 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:12.517778 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:12.897407 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:13.230043 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:13.607660 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:14.010066 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:15.303581 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:15.630458 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:16.008348 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:16.343573 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:16.696357 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:44.875641 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:22:44.876142 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:22:46.009967 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:46.627660 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:47.040870 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:47.444681 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:22:47.757719 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 12:46:58.347547 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:46:58.348065 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:47:19.568266 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:47:19.568546 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:48:16.240435 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:48:16.241068 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:48:23.836239 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:48:23.837045 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:48:30.084801 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:48:30.085166 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:48:51.602684 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:48:58.722924 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:49:04.606609 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:49:04.607177 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:49:58.570495 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:49:58.570925 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:50:25.092266 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:50:29.493304 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:50:29.493588 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:51:51.415544 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:51:51.416404 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 12:52:37.894981 etcd_client.go:25: [INFO] connect to etcd success
+[Info]:2022/10/26 12:52:37.895888 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:04:18.854228 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:04:33.470544 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:04:33.473027 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:04:42.570766 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:04:42.573926 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:04:47.340543 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:05:13.397648 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:05:13.400702 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:05:18.112860 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:32.370253 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:05:32.372603 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:05:41.021560 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:05:41.024588 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:05:46.022255 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:54.024936 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:56.680654 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:57.564320 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:58.053011 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:58.438391 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:58.881329 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:59.255075 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:05:59.659097 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:06:00.009163 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:06:59.587504 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:07:00.154278 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:08:40.304906 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:08:40.307989 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:09:45.178067 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:09:45.181993 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:09:58.018273 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:09:58.021568 etcd_client.go:28: [INFO] connect to etcd success
+[Info]:2022/10/26 13:12:55.992148 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:12:55.995518 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:12:56.750805 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:12:57.368344 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:12:59.859005 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:02.514438 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:03.182822 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:04.614350 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:05.096479 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:08.457456 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:57.799965 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:58.169427 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:58.531053 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:13:59.956052 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:00.448542 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:00.824985 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:01.166569 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:01.476397 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:02.110049 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:14:02.552023 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:15:00.356289 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:15:00.361651 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:16:06.081639 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:16:06.085675 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:17:56.675456 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:17:56.677966 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:18:04.356035 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:18:04.358674 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:18:20.500246 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:18:20.505801 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:18:53.278411 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:18:53.280937 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:19:20.895166 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:19:20.899019 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:20:30.461908 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:20:30.466277 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:20:47.213709 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:20:47.217529 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:22:09.348534 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:22:09.352010 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:23:31.815507 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:23:31.818440 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:23:41.495343 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:23:41.498805 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:23:44.408661 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:45.133224 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:45.866873 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:46.390202 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:57.367226 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:23:57.370299 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:23:58.461450 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:58.934762 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:59.273051 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:23:59.925754 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:00.303192 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:00.698997 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:01.080723 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:01.477440 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:01.877742 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:24:02.328655 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:09.737072 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:35:09.739611 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:35:16.684505 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:35:16.686970 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:35:39.282748 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:35:39.286159 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:35:41.030562 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:41.755034 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:42.264678 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:42.668362 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:43.046908 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:43.410290 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:43.742721 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:44.116715 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:52.375588 proxy.go:30: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 13:35:52.378531 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 13:35:55.298234 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:55.630696 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:56.004738 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:56.345111 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:35:56.683588 proxy.go:89: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 13:59:56.953041 etcd_client.go:24: [127.0.0.1:2379]
+[Info]:2022/10/26 13:59:56.953245 etcd_client.go:30: [INFO] connect to etcd success
+[Info]:2022/10/26 14:00:49.797241 etcd_client.go:24: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 14:00:49.797433 etcd_client.go:30: [INFO] connect to etcd success
+[Info]:2022/10/26 14:00:49.797533 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 14:02:56.442421 etcd_client.go:24: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 14:02:56.442582 etcd_client.go:30: [INFO] connect to etcd success
+[Info]:2022/10/26 14:03:01.466240 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:03.055627 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:03.743235 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:04.198289 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:04.634459 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:05.020886 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:05.394384 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:05.830534 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:06.353883 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:26.163227 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:26.646849 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:26.989857 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 14:03:27.409203 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001

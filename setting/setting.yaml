@@ -1,7 +1,7 @@
 server:
   port: 8081
-  readTimeout: 500
-  writeTimeout: 500
+  readTimeout: 5000
+  writeTimeout: 5000
   # 服务优雅关闭超时时间 秒为单位
   shutdownTimeout: 30
 
@@ -19,3 +19,8 @@ balance:
   strategy: default
   # 使用 smooth_poll 时需要配置
   defaultWeight: 1000
+
+etcd:
+  endpoint:
+    - "127.0.0.1:2379"
+  dialTimeout: 5

@@ -1,6 +1,7 @@
 package proxy
 
 import (
+	"eff-gateway/discovery"
 	"eff-gateway/gateway/proxy/types"
 	"eff-gateway/glog"
 	"encoding/json"
@@ -22,14 +23,25 @@ var adminUrl = flag.String("adminUrl", "/api/v1/", "admin的地址")
 var profile = flag.String("profile", "", "环境")
 var proxyFile = flag.String("proxyFile", "/api/v1/", "测试环境的数据")
 
-func init() {
+func InitProxy() {
 	if *profile != "" {
-		glog.InfoLog.Printf("加载远端数据: %s", *adminUrl)
-		InitProxyList()
+		all, err := discovery.EC.Get("/")
+		if err != nil {
+			glog.ErrorLog.Fatalln("etcd service error:", err.Error())
+		}
+		for _, v := range all {
+			t := types.Proxy{}
+			err := json.Unmarshal(v.Value, &t)
+			if err != nil {
+				continue
+			}
+			ProxyMap[string(v.Key)] = t
+		}
 	} else {
 		glog.InfoLog.Printf("加载本地配置数据: %s", *proxyFile)
 		LoadProxyListFromFile()
 	}
+
 }
 
 func InitProxyList() {
