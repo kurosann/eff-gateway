@@ -1,10 +1,25 @@
 package discovery
 
-func InitService() {
-	InitEtcd()
+import (
+	"eff-gateway/clients"
+	"eff-gateway/setting"
+	clientv3 "go.etcd.io/etcd/client/v3"
+	"time"
+)
+
+var EC *clients.EtcdClient
+
+func InitService() error {
+	endpoint := setting.Config.Etcd.Endpoint
+	options := clientv3.Config{
+		Endpoints:   endpoint,
+		DialTimeout: time.Duration(setting.Config.Etcd.DialTimeout) * time.Millisecond,
+	}
+	EC = clients.NewEtcdClient(options)
+	return nil
 }
 
-func KeepAlive(key string, f EtcdEvFunc) {
+func KeepAlive(key string, f clients.EtcdEvFunc) {
 	EC.KeepWatch(key, f)
 }
 

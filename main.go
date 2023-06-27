@@ -1,10 +1,10 @@
 package main
 
 import (
-	"eff-gateway/gateway/system"
+	"eff-gateway/gateway/juice"
 )
 
 func main() {
-	gateWay := system.Default()
+	gateWay := juice.Default()
 	gateWay.Run()
 }

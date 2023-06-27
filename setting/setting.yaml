@@ -1,4 +1,5 @@
 server:
+  ip: "192.168.1.125"
   port: 8081
   readTimeout: 5000
   writeTimeout: 5000
@@ -24,3 +25,4 @@ etcd:
   endpoint:
     - "127.0.0.1:2379"
   dialTimeout: 5
+  readTimeout: 5

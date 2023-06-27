@@ -1,15 +1,16 @@
-package system
+package juice
 
 import (
 	"context"
 	"eff-gateway/discovery"
 	"eff-gateway/gateway/proxy"
 	"eff-gateway/gateway/proxy/types"
+	"eff-gateway/glog"
 	"eff-gateway/setting"
 	"encoding/json"
 	"fmt"
-	"github.com/coreos/etcd/clientv3"
-	"github.com/coreos/etcd/mvcc/mvccpb"
+	"go.etcd.io/etcd/api/v3/mvccpb"
+	clientv3 "go.etcd.io/etcd/client/v3"
 	"log"
 	"net/http"
 	"os"
@@ -18,7 +19,7 @@ import (
 	"time"
 )
 
-type EffGateWay struct {
+type GateWay struct {
 	server *http.Server
 
 	locker  sync.RWMutex
@@ -27,14 +28,14 @@ type EffGateWay struct {
 	closeChan chan byte
 }
 
-func Default() *EffGateWay {
+func Default() *GateWay {
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
 		ReadTimeout:  time.Duration(setting.Config.Server.ReadTimout) * time.Microsecond,
 		WriteTimeout: time.Duration(setting.Config.Server.WriteTimout) * time.Microsecond,
 		Handler:      initRouter(),
 	}
-	gateWay := &EffGateWay{
+	gateWay := &GateWay{
 		server:    server,
 		isClose:   false,
 		closeChan: make(chan byte, 100),
@@ -42,7 +43,7 @@ func Default() *EffGateWay {
 	return gateWay
 }
 
-func (g *EffGateWay) Run() {
+func (g *GateWay) Run() {
 	if g.server == nil {
 		g.server = &http.Server{
 			Addr:         fmt.Sprintf(":%d", setting.Config.Server.Port),
@@ -54,12 +55,19 @@ func (g *EffGateWay) Run() {
 	g.init()
 	log.Println("Gateway service is running at port:", setting.Config.Server.Port)
 
-	go g.osKill()
-	g.runHTTPSv()
+	go g.runHTTPSv()
+	g.osKill()
+
 }
 
-func (g *EffGateWay) init() {
-	discovery.InitService()
+func (g *GateWay) init() {
+	err := discovery.InitService()
+	err = discovery.PutSv("/juice/GateWay", setting.Config.Server.Ip)
+	if err != nil {
+		glog.ErrorLog.Println(err.Error())
+		glog.ErrorLog.Fatalln("etcd service is run fail!")
+	}
+	glog.InfoLog.Println("[INFO] connect to etcd success")
 	// etcd 服务发现
 	go discovery.KeepAlive("/test", func(ev *clientv3.Event) bool {
 		fmt.Printf("Servise update type:%s Key:%s Value:%s\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
@@ -80,7 +88,7 @@ func (g *EffGateWay) init() {
 	proxy.InitProxy()
 }
 
-func (g *EffGateWay) runHTTPSv() {
+func (g *GateWay) runHTTPSv() {
 	err := g.server.ListenAndServe()
 	if err != nil {
 		g.close()
@@ -95,14 +103,14 @@ func initRouter() *http.ServeMux {
 	return mux
 }
 
-func (g *EffGateWay) osKill() {
+func (g *GateWay) osKill() {
 	s := make(chan os.Signal, 1)
 	signal.Notify(s, os.Interrupt, os.Kill)
 	<-s
 	g.close()
 }
 
-func (g *EffGateWay) close() {
+func (g *GateWay) close() {
 	g.locker.Lock()
 	defer g.locker.Unlock()
 
@@ -119,7 +127,7 @@ func (g *EffGateWay) close() {
 	}
 }
 
-func (g *EffGateWay) shutdown() {
+func (g *GateWay) shutdown() {
 	time.Sleep(time.Duration(setting.Config.Server.ShutdownTimout) * time.Second)
 	discovery.EC.Close()
 	log.Fatalln("Gateway service shutdown")

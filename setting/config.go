@@ -21,10 +21,11 @@ type conf struct {
 }
 
 type ServerConfig struct {
-	Port           int `yaml:"port"`
-	ReadTimout     int `yaml:"readTimeout"`
-	WriteTimout    int `yaml:"writeTimeout"`
-	ShutdownTimout int `yaml:"shutdownTimeout"`
+	Ip             string `yaml:"ip"`
+	Port           int    `yaml:"port"`
+	ReadTimout     int    `yaml:"readTimeout"`
+	WriteTimout    int    `yaml:"writeTimeout"`
+	ShutdownTimout int    `yaml:"shutdownTimeout"`
 }
 
 type LogConfig struct {

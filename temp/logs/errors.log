@@ -225,3 +225,35 @@ Error:2022/10/26 12:14:46.714501 proxy.go:108: err: open /api/v1/: no such file 
 [Err]:2022/10/26 14:00:49.796980 load_config.go:62: err: open config_local.json: no such file or directory
 [Err]:2022/10/26 14:00:49.797551 proxy.go:120: err: open /api/v1/: no such file or directory
 [Err]:2022/10/26 14:02:56.441461 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 15:18:01.398819 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 15:18:01.399947 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2022/10/26 15:18:12.925572 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 15:21:06.339942 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 15:21:14.142195 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 15:21:14.142677 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2022/10/26 15:21:21.396922 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:20:17.372042 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:20:25.005950 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:20:25.006299 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2022/10/26 16:20:28.560450 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:42:46.388484 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:42:57.908611 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2022/10/26 16:42:57.909121 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2022/10/26 16:43:01.818964 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/07 16:09:51.244022 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/07 16:09:51.245031 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2023/02/07 16:18:23.181991 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/07 16:20:52.915997 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/07 16:20:55.918075 system.go:66: context deadline exceeded
+[Err]:2023/02/07 16:20:55.918328 system.go:67: etcd service is run fail!
+[Err]:2023/02/07 16:21:54.952469 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/07 16:21:57.954894 system.go:66: context deadline exceeded
+[Err]:2023/02/07 16:21:57.955031 system.go:67: etcd service is run fail!
+[Err]:2023/02/11 22:55:11.287942 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/02/11 22:55:11.327426 proxy.go:120: err: open /api/v1/: no such file or directory
+[Err]:2023/03/14 10:20:18.781835 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/03/14 10:20:21.784266 system.go:66: context deadline exceeded
+[Err]:2023/03/14 10:20:21.784366 system.go:67: etcd service is run fail!
+[Err]:2023/03/14 10:21:38.832187 load_config.go:62: err: open config_local.json: no such file or directory
+[Err]:2023/03/14 10:21:41.841836 system.go:66: context deadline exceeded
+[Err]:2023/03/14 10:21:41.841993 system.go:67: etcd service is run fail!

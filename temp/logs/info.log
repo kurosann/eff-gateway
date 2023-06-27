@@ -374,3 +374,37 @@ Info:2022/10/26 12:14:46.717399 etcd_client.go:25: connect to etcd success
 [Info]:2022/10/26 14:03:26.646849 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
 [Info]:2022/10/26 14:03:26.989857 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
 [Info]:2022/10/26 14:03:27.409203 proxy.go:101: RequestURI:/test upstream:/test remote:http://127.0.0.1:9001
+[Info]:2022/10/26 15:18:01.399639 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 15:18:01.399877 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 15:18:01.399920 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 15:18:12.926270 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 15:18:12.926416 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 15:21:06.340619 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 15:21:06.340633 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 15:21:14.142446 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 15:21:14.142619 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 15:21:14.142658 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 15:21:21.397449 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 15:21:21.397464 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:20:17.373148 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:20:17.373175 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:20:25.006252 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:20:25.006283 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:20:25.006290 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 16:20:28.561158 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:20:28.561173 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:42:46.389222 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:42:46.389246 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:42:57.909023 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:42:57.909091 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2022/10/26 16:42:57.909105 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2022/10/26 16:43:01.819586 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2022/10/26 16:43:01.819603 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2023/02/07 16:09:51.244701 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2023/02/07 16:09:51.244981 etcd_client.go:29: [INFO] connect to etcd success
+[Info]:2023/02/07 16:09:51.245011 proxy.go:41: 加载本地配置数据: /api/v1/
+[Info]:2023/02/07 16:18:23.182471 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2023/02/07 16:20:52.916396 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2023/02/07 16:21:54.953153 etcd_client.go:23: services exited:[127.0.0.1:2379]
+[Info]:2023/02/11 22:55:11.327175 system.go:69: [INFO] connect to etcd success
+[Info]:2023/02/11 22:55:11.327391 proxy.go:41: 加载本地配置数据: /api/v1/
